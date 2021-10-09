@@ -1,0 +1,26 @@
+.container{
+    position: relative; 
+    width: 700px;
+    height: 350px;
+    margin: 100px auto;
+    background-color: rgba(0,0,0,0.2);
+    padding: 25px;
+    border-radius: 10px;
+}
+
+h1{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#histbtn{
+    position: absolute;
+    top: 180px; 
+    left: 60px;
+}
+
+#schedbtn{
+    position: absolute;
+    top: 180px;
+    right: 60px;
+}

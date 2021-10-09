@@ -1,15 +1,19 @@
 {% extends 'Basic/nav.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
+
+{% block title %}Dashboard{% endblock title %}
+
+{% load static%}
+
+{% block cssfile %}{% static 'Dashboard/index.css' %}{% endblock cssfile %}
+
 {% block body %}
-<body>
-    <h1>Welcome to dashboard page!!</h1>
-</body>
-</html>
+<div class="container">
+    <h1 style="text-align: center;">Hey, {{name}}!! 👋</h1> 
+    <div id="buttongrp">
+        <div style="flex-direction: row;">
+            <a id="histbtn" href="/history" class="btn btn-dark btn-lg" >Check your history</a>
+            <a id="schedbtn" href="/schedule" class="btn btn-dark btn-lg" >Create a medicine schedule</a>
+        </div>
+    </div>    
+</div>
 {% endblock body %}
