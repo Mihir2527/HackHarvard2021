@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'Dashboard.apps.DashboardConfig',
+    'History.apps.HistoryConfig',
     'Schedule.apps.ScheduleConfig',
     'Basic.apps.BasicConfig',
     'django.contrib.admin',

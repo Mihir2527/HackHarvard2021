@@ -1,0 +1,57 @@
+{% extends 'Basic/nav.html' %}
+
+{% load static %}
+{% block cssfile %}{% static 'History/index.css' %}{% endblock cssfile %}
+
+{% block body %}
+
+<!-- <div>
+    <h1>History</h1>
+    <a id="newrecbtn" href="/newrecord" class="btn btn-dark btn-lg" >Add new record</a>
+</div> -->
+
+<div style="display: flex; flex-direction: row; justify-content: center; margin-top:50px">
+    <div>
+        <h1 style="text-align: center; margin-top: 30px;">History</h1>
+    </div>
+    <div>
+        <a class="btn btn-lg btn-dark btn-block" href="/history/newrecord" type="submit"
+            style="margin-top: 30px; margin-left: 40px;">Add new record</a>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<table class="styled-table">
+
+    <thead>
+        <tr>
+            <th>Infection</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Medicine</th>
+            <th>Outcome</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in history_qs %}
+        <tr>
+            <td>{{item.infection}}</td>
+            <td>{{item.start_date}}</td>
+            <td>{{item.end_date}}</td>
+            <td>{{item.medicine}}</td>
+            <td class="{{item.outcome}}">{{item.outcome}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+<br>
+<br>
+<br>
+
+{% endblock body %}

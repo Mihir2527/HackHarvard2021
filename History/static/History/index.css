@@ -1,0 +1,57 @@
+body{
+    background-color: white;
+}
+
+h1{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.styled-table {
+    width: 800px;
+    margin: 50px auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+}
+
+.styled-table tbody tr{
+    text-align: center;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 25px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 2px solid #dddddd;
+    width: 20px;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.Negative {
+    color: #f07269;
+    text-decoration: underline;
+}
+
+.Positive {
+    color: green;
+    text-decoration: underline;
+}
+
+
+#newrecbtn{
+    text-align: center;
+}
