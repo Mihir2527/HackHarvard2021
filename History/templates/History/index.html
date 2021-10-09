@@ -12,7 +12,7 @@
 
 <div style="display: flex; flex-direction: row; justify-content: center; margin-top:50px">
     <div>
-        <h1 style="text-align: center; margin-top: 30px;">History</h1>
+        <h1 style="text-align: center; margin-top: 30px;">Your History</h1>
     </div>
     <div>
         <a class="btn btn-lg btn-dark btn-block" href="/history/newrecord" type="submit"
@@ -29,7 +29,7 @@
 
         <!-- Disease Name filter -->
         <label for="disease_name_filter">Disease Name</label>
-        <input type="text" name="disease_name_filter" id="disease_name_filter" placeholder="Type the name of the disease">
+        <input type="text" name="disease_name_filter" id="disease_name_filter" placeholder="Type the name of the disease" style="width: 220px;">
     
         <!-- Date filter -->
         <label for="date_filter">Date</label>
@@ -42,7 +42,7 @@
     
         <!-- Medicine Name filter -->
         <label for="medicine_name_filter">Medicine Name</label>
-        <input type="text" name="medicine_name_filter" id="medicine_name_filter" placeholder="Type the name of the medicine">
+        <input type="text" name="medicine_name_filter" id="medicine_name_filter" placeholder="Type the name of the medicine" style="width: 240px;">
     
         <!-- Outcome filter -->
         <label for="outcome_filter">Outcome</label>
@@ -51,9 +51,7 @@
             <option value="Positive">Positive</option>
             <option value="Negative">Negative</option>
         </select>
-    
-    
-        <button type="submit" class="btn btn-dark">Search</button>
+        <button type="submit" class="btn btn-dark" style="margin-left: 5px;">Search</button>
     </form>
 
 </div>
@@ -68,6 +66,7 @@
             <th>Infection</th>
             <th>Start Date</th>
             <th>End Date</th>
+            <th>Duration</th>
             <th>Medicine</th>
             <th>Outcome</th>
         </tr>
@@ -79,6 +78,7 @@
             <td>{{item.infection}}</td>
             <td>{{item.start_date}}</td>
             <td>{{item.end_date}}</td>
+            <td>{{item.duration}}</td>
             <td>{{item.medicine}}</td>
             <td class="{{item.outcome}}">{{item.outcome}}</td>
         </tr>

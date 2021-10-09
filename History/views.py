@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from History.models import HistoryData
 from django.contrib.auth.models import User
 from django.contrib import messages
+from datetime import datetime,timedelta,date
 
 # Create your views here.
 
@@ -16,8 +17,24 @@ def getHistoryPage(request):
         end_date=request.POST.get('end_date')
         medicine=request.POST.get('medicine')
         outcome=request.POST.get('outcome')
+        t1=start_date.split("-")
+        t2=end_date.split("-")
+        print(t1)
+        print(t2)
+        t1 = [int(i) for i in t1]
+        t2 = [int(i) for i in t2]
+        
+        date1 = date(t1[0],t1[1],t1[2])
+        date2 = date(t2[0],t2[1],t2[2])
+        days = abs(date1-date2).days    
+        no_of_weeks=days//7
 
-        newRecord=HistoryData(uname=name,infection=infection,start_date=start_date,end_date=end_date,medicine=medicine,outcome=outcome)
+        duration_str=str(no_of_weeks)+" weeks"
+
+        if no_of_weeks==0:
+            duration_str=str(days)+" days"
+
+        newRecord=HistoryData(uname=name,infection=infection,start_date=start_date,end_date=end_date,duration=duration_str,medicine=medicine,outcome=outcome)
         newRecord.save()
         messages.success(request,"Record added!!")
         return redirect("/history")
