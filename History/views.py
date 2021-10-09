@@ -34,7 +34,7 @@ def getHistoryPage(request):
     date_filter=request.GET.get("date_filter")
     date_criteria=request.GET.get("date")
     medicine_name_filter=request.GET.get("medicine_name_filter")
-    outcome_filter=request.GET.get("outcome_filter")
+    outcome_filter=request.GET.get("outcome")
 
     # Name filter
     if disease_name_filter!='' and disease_name_filter is not None:

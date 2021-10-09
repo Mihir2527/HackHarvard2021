@@ -7,6 +7,7 @@ class HistoryData(models.Model):
     infection=models.CharField(default="noinfection",max_length=300)
     start_date=models.DateField(default=datetime.now)
     end_date=models.DateField(default=datetime.now)
+    duration=models.CharField(default="none",max_length=20)
     medicine=models.CharField(default="nomedicine",max_length=300)
     outcome=models.CharField(default="neutral",max_length=20)
     

@@ -24,35 +24,42 @@
 <br>
 <br>
 
-<form action="/history/" method="GET">
+<div style="width: 1400px; margin: 0 auto;">
+    <form action="/history/" method="GET">
 
-    <!-- Disease Name filter -->
-    <label for="disease_name_filter">Disease Name</label>
-    <input type="text" name="disease_name_filter" id="disease_name_filter" placeholder="Type the name of the disease">
+        <!-- Disease Name filter -->
+        <label for="disease_name_filter">Disease Name</label>
+        <input type="text" name="disease_name_filter" id="disease_name_filter" placeholder="Type the name of the disease">
+    
+        <!-- Date filter -->
+        <label for="date_filter">Date</label>
+        <select name="date" id="date">
+            <option value="" selected disabled hidden>Choose before/after</option>
+            <option value="before">Before</option>
+            <option value="after">After</option>
+        </select>
+        <input type="date" name="date_filter" id="date_filter" placeholder="Date">
+    
+        <!-- Medicine Name filter -->
+        <label for="medicine_name_filter">Medicine Name</label>
+        <input type="text" name="medicine_name_filter" id="medicine_name_filter" placeholder="Type the name of the medicine">
+    
+        <!-- Outcome filter -->
+        <label for="outcome_filter">Outcome</label>
+        <select name="outcome" id="outcome_filter">
+            <option value="" selected disabled hidden>Choose the outcome</option>
+            <option value="Positive">Positive</option>
+            <option value="Negative">Negative</option>
+        </select>
+    
+    
+        <button type="submit" class="btn btn-dark">Search</button>
+    </form>
 
-    <!-- Date filter -->
-    <label for="date_filter">Date</label>
-    <select name="date" id="date">
-        <option value="before">Before</option>
-        <option value="after">After</option>
-    </select>
-    <input type="date" name="date_filter" id="date_filter" placeholder="Date">
+</div>
 
-    <!-- Medicine Name filter -->
-    <label for="medicine_name_filter">Medicine Name</label>
-    <input type="text" name="medicine_name_filter" id="medicine_name_filter" placeholder="Type the name of the medicine">
+<a href="/history/" name="clear_filters" class="btn btn-dark" style="margin-left: 50px; margin-top: 30px;">Clear all filters</a>
 
-    <!-- Outcome filter -->
-    <label for="outcome_filter">Outcome</label>
-    <select name="outcome" id="outcome_filter">
-        <option value="Positive">Positive</option>
-        <option value="Negative">Negative</option>
-    </select>
-
-
-    <button type="button" class="btn btn-dark">Search</button>
-    <a href="/history/" name="clear_filters">Clear all filters</a>
-</form>
 
 <table class="styled-table">
 
