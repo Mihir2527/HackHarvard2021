@@ -1,3 +1,25 @@
 body{
     background-color: blanchedalmond;
 }
+
+.container{
+    height: 300px;
+    width: 600px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 180px auto;
+    padding: 40px;
+}
+
+#title{
+    font-style: italic;
+}
+
+#buttongrp{
+    margin-top: 30px;
+    padding: 40px;
+}
+
+.btn, btn-outline-primary, btn-lg{
+    margin: 15px;
+}
