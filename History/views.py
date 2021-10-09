@@ -1,10 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from History.models import HistoryData
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 # Create your views here.
 
 def getHistoryPage(request):
+
+    if request.method=="POST":
+        user=User.objects.get(username=request.user)
+        name=user.username
+        
+        infection=request.POST.get('infection')
+        start_date=request.POST.get('start_date')
+        end_date=request.POST.get('end_date')
+        medicine=request.POST.get('medicine')
+        outcome=request.POST.get('outcome')
+
+        newRecord=HistoryData(uname=name,infection=infection,start_date=start_date,end_date=end_date,medicine=medicine,outcome=outcome)
+        newRecord.save()
+        messages.success(request,"Record added!!")
+        return redirect("/history")
+
     allUserHistory=HistoryData.objects.all()
 
     user=User.objects.get(username=request.user)
