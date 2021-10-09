@@ -19,7 +19,7 @@
 ### These will be the main features of this project - 
 1. Maintain a **medical history** of every person registered on the website
 2. The person can see all of his medical history on his **Dashboard Page** with information such as date, infection/disease, and medicine taken, and whether it worked or not
-3. He can filter the list according to date and disease/infection
+3. The person can filter the list according to date and disease/infection
 4. Create a **shareable PDF report** which gives a better idea of the patient's medical condition and history
 5. The report will contain all of the persons medical history along with a graph showing at what time he got what infection
 6. Allowing people to add (and remove) medicines and their time intervals
