@@ -10,7 +10,7 @@
 <br>
 <br>
 
-## Project Name: [takeyourmeds.com](https://www.takeyourmeds.com)
+## Project Name: [healthlogger.com](https://www.healthlogger.com)
 <br>
 
 ### <ins>Project Description</ins>: 
