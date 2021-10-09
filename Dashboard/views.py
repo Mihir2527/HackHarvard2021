@@ -3,4 +3,4 @@ from django.shortcuts import render
 
 # Create your views here.
 def getDashboardHomePage(request):
-    return HttpResponse("Home of Dashboard")
+    return render(request,"Dashboard/index.html")

@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'Dashboard.apps.DashboardConfig',
     'Schedule.apps.ScheduleConfig',
+    'Basic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
