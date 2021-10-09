@@ -24,6 +24,36 @@
 <br>
 <br>
 
+<form action="/history/" method="GET">
+
+    <!-- Disease Name filter -->
+    <label for="disease_name_filter">Disease Name</label>
+    <input type="text" name="disease_name_filter" id="disease_name_filter" placeholder="Type the name of the disease">
+
+    <!-- Date filter -->
+    <label for="date_filter">Date</label>
+    <select name="date" id="date">
+        <option value="before">Before</option>
+        <option value="after">After</option>
+    </select>
+    <input type="date" name="date_filter" id="date_filter" placeholder="Date">
+
+    <!-- Medicine Name filter -->
+    <label for="medicine_name_filter">Medicine Name</label>
+    <input type="text" name="medicine_name_filter" id="medicine_name_filter" placeholder="Type the name of the medicine">
+
+    <!-- Outcome filter -->
+    <label for="outcome_filter">Outcome</label>
+    <select name="outcome" id="outcome_filter">
+        <option value="positive">Positive</option>
+        <option value="negative">Negative</option>
+    </select>
+
+
+    <button type="submit">Search</button>
+    <a href="/history/" name="clear_filters">Clear all filters</a>
+</form>
+
 <table class="styled-table">
 
     <thead>
