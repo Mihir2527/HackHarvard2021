@@ -96,14 +96,30 @@
 
     <form class="form-signin" method="POST" action="/history/newrecord/">
         {% csrf_token %}
+        
         <h1 class="h3 mb-3 font-weight-normal text-center">Please enter the necessary details</h1>
-        <!-- <label for="inputEmail" class="sr-only">Username</label> -->
-        <input type="text" id="inputCore" name="core" class="form-control" placeholder="Core name" required autofocus>
-        <!-- <label for="inputPassword" class="sr-only">Password</label> -->
-        <input type="text" id="inputConfig" name="config" class="form-control"
-            placeholder="Enter config names space seperated" required>
-        <input type="text" id="inputJobs" name="job" class="form-control" placeholder="Enter Job names space seperated"
-            required>
+
+        <!-- Infection Name -->
+        <input type="text" id="inputInfection" name="infection" class="form-control" placeholder="Disease/Infection Name" required autofocus>
+
+        <!-- Start Date -->
+        <label for="start_date">Start Date</label>
+        <input type="date" name="start_date" id="start_date" placeholder="Start Date" required>
+        
+        <!-- End Date -->
+        <label for="end_date">End Date</label>
+        <input type="date" name="end_date" id="end_date" placeholder="End Date" required>
+
+        <!-- Medicine Name -->
+        <input type="text" id="inputMedicine" name="medicine" class="form-control" placeholder="Medicine Name" required>
+
+        <!-- Outcome -->
+        <label for="inputOutcome">Outcome</label>
+        <select name="outcome" id="inputOutcome">
+            <option value="positive">Positive</option>
+            <option value="negative">Negative</option>
+        </select>
+
         <button class="btn btn-lg btn-primary btn-block" type="submit"
             style="margin-left: 100px; margin-top: 20px;">Add</button>
 
