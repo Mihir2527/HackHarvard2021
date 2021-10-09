@@ -4,4 +4,5 @@ from History import views
 
 urlpatterns = [
     path('',views.getHistoryPage,name="History"),
+    path('newrecord/',views.newRecordPage,name="newRecord"),
 ]

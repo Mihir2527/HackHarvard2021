@@ -65,3 +65,9 @@ def getHistoryPage(request):
     # else:
     #     print("not empty")
     return render(request,"History/index.html",{'history_qs':currUserHistory})
+
+def newRecordPage(request):
+    if request.user.is_anonymous:
+        return redirect("/login")
+    
+    return render(request,"History/newrecord.html")
