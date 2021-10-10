@@ -24,6 +24,12 @@ def getHomePage(request):
     print("Username is: ",name)
     currUserHistory=allUserHistory.filter(uname=name)
     print("User history is: ",currUserHistory)
+    currUserHistory2=currUserHistory
+
+    
+    if 'gentable' in request.GET:
+        inpyear=request.GET.get('year')
+        currUserHistory2=currUserHistory.filter(start_date__contains=inpyear)
 
 
     # if not allUserHistory:
@@ -31,7 +37,56 @@ def getHomePage(request):
     #     return render(request,"History/index.html")
     # else:
     #     print("not empty")
-    return render(request,"Summary/index.html",{'history_qs':currUserHistory})
+
+    month_dict={
+        '01':'January',
+        '02':'February',
+        '03':'March',
+        '04':'April',
+        '05':'May',
+        '06':'June',
+        '07':'July',
+        '08':'August',
+        '09':'September',
+        '10':'October',
+        '11':'November',
+        '12':'December',
+    }
+
+    summaryDict={
+        'January':"",
+        'February':"",
+        'March':"",
+        'April':"",
+        'May':"",
+        'June':"",
+        'July':"",
+        'August':"",
+        'September':"",
+        'October':"",
+        'November':"",
+        'December':"",
+    }
+
+
+    for item in currUserHistory2:
+        temp=str(item.start_date)
+        temp1=temp.split("-")[1] # month number
+        print(temp1)
+        print("All months and infections")
+        month_str=month_dict[temp1]
+        summaryDict[month_str]+=(item.infection)+",   "
+
+    print(summaryDict)
+    print(currUserHistory)
+
+    context={
+        'history_qs':currUserHistory,
+        'summaryDict':summaryDict,
+    } # has to be a dictionary
+
+    # return render(request,"Summary/index.html",{'history_qs':currUserHistory,'summaryDict':summaryDict})
+    return render(request,"Summary/index.html",context)
 
 def getReport(request):
     allUserHistory=HistoryData.objects.all()
@@ -79,7 +134,7 @@ def getReport(request):
     textob.setTextOrigin(inch,inch)
     textob.setFont("Helvetica",14)
 
-    lines=[]
+    lines=""
 
 
     info1="Name of person: "+user.first_name+" "+user.last_name

@@ -47,7 +47,7 @@
             <option value="Positive">Positive</option>
             <option value="Negative">Negative</option>
         </select>
-        <button type="submit" class="btn btn-success" style="margin-top:20px; " onclick="return confirm('Do you want to donwload the report?');">Generate Report</button>
+        <button type="submit" class="btn btn-success" style="margin-top:20px; " onclick="return confirm('Do you want to download the report?');">Generate Report</button>
     </form>
 
 </div>
@@ -84,5 +84,34 @@
 <br>
 <br>
 <br>
+
+<form action="/summary/" method="GET" name="yearly_table" style="margin-left: 350px;">
+    <label for="year">Choose Year:</label>
+    <input name="year" type="number" min="1900" max="2099" step="1" value="2018" />
+    <button type="submit" class="btn btn-sm btn-success" name="gentable">Generate table</button>
+</form>
+
+<h2 style="text-align: center;">Yearly Statistics Table</h2>
+<div style="width: 600px; margin: 40px auto;">
+    <table style="width: 80%; margin-left: 40px;">
+        <thead>
+            <tr>
+                <th style="border:1px solid grey">Month</th>
+                <th style="border:1px solid grey">Infections</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            {% for item,value in summaryDict.items %}
+            <tr>
+                <td style="border:1px solid grey">{{item}}</td>
+                <td style="border:1px solid grey; width: 90%;">{{value}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
 
 {% endblock body %}
