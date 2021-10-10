@@ -17,6 +17,8 @@ cm = 2.54
 
 # Create your views here.
 def getHomePage(request):
+    if request.user.is_anonymous:
+        return redirect("/login")
     allUserHistory=HistoryData.objects.all()
 
     user=User.objects.get(username=request.user)
@@ -89,6 +91,8 @@ def getHomePage(request):
     return render(request,"Summary/index.html",context)
 
 def getReport(request):
+    if request.user.is_anonymous:
+        return redirect("/login")
     allUserHistory=HistoryData.objects.all()
 
     user=User.objects.get(username=request.user)

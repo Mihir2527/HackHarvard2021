@@ -13,7 +13,8 @@ from reportlab.lib.pagesizes import letter
 # Create your views here.
 
 def getHistoryPage(request):
-
+    if request.user.is_anonymous:
+        return redirect("/login")
     if request.method=="POST":
         user=User.objects.get(username=request.user)
         name=user.username
@@ -99,6 +100,8 @@ def newRecordPage(request):
 
 
 def editView(request,myid):
+    if request.user.is_anonymous:
+        return redirect("/login")
     if request.method=="POST":
         user=User.objects.get(username=request.user)
         name=user.username
@@ -141,6 +144,8 @@ def editView(request,myid):
 
 
 def deleteView(request,myid):
+    if request.user.is_anonymous:
+        return redirect("/login")
     HistoryData.objects.filter(entry_id=myid).delete()
     messages.success(request,"Record deleted!!")
     return redirect("/history/")
