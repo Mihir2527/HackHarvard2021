@@ -138,8 +138,7 @@ def getReport(request):
     textob.setTextOrigin(inch,inch)
     textob.setFont("Helvetica",14)
 
-    lines=""
-
+    lines=[]
 
     info1="Name of person: "+user.first_name+" "+user.last_name
     info2="Email: "+user.email
