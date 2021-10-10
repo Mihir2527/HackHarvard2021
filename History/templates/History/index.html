@@ -88,7 +88,7 @@
             <td class="{{item.outcome}}">{{item.outcome}}</td>
             <td>
                 <a href="/history/edit/{{item.entry_id}}"><button id="edit{{item.entry_id}}" class="btn btn-warning">Edit</button></a>
-                <a href="/history/delete/{{item.entry_id}}"><button id="delete{{item.entry_id}}" class="btn btn-danger">Delete</button></a>
+                <a href="/history/delete/{{item.entry_id}}" onclick="return confirm('Are you sure you want to delete this item?');"><button id="delete{{item.entry_id}}" class="btn btn-danger">Delete</button></a>
             </td>
         </tr>
         {% endfor %}
