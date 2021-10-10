@@ -176,3 +176,8 @@ def editView(request,myid):
     print("*****",item,"*****")
     return render(request,'History/edit.html',{'item':item[0]})
 
+
+def deleteView(request,myid):
+    HistoryData.objects.filter(entry_id=myid).delete()
+    messages.success(request,"Record deleted!!")
+    return redirect("/history/")

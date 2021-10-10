@@ -11,6 +11,8 @@ h1{
     width: 800px;
     margin: 50px auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+    width: 100%;
+    border: 1px solid #000;
 }
 
 .styled-table thead tr {
