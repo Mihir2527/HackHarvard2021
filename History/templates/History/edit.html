@@ -98,6 +98,7 @@
         {% csrf_token %}
         
         <h1 class="h3 mb-3 font-weight-normal text-center">Edit your item</h1>
+        <br>  
 
         <!-- Infection Name -->
         <input type="text" id="inputInfection" name="infection" class="form-control" placeholder="Disease/Infection Name" value="{{item.infection}}" required autofocus>
@@ -105,6 +106,7 @@
         <!-- Start Date -->
         <label for="start_date">Start Date</label>
         <input type="date" name="start_date" id="start_date" placeholder="Start Date" required>
+        <br>  
         <br>  
         <!-- End Date -->
         <label for="end_date">End Date</label>
