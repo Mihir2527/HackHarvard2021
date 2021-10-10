@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'Dashboard.apps.DashboardConfig',
     'History.apps.HistoryConfig',
     'Schedule.apps.ScheduleConfig',
+    'Summary.apps.SummaryConfig',
     'Basic.apps.BasicConfig',
     'django.contrib.admin',
     'django.contrib.auth',

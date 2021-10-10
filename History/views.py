@@ -97,43 +97,6 @@ def newRecordPage(request):
     
     return render(request,"History/newrecord.html")
 
-def getReport(request):
-    user=User.objects.get(username=request.user)
-    name=user.username
-    
-    
-    buf=io.BytesIO()
-    c=canvas.Canvas(buf,pagesize=letter,bottomup=0)
-    textob=c.beginText()
-    textob.setTextOrigin(inch,inch)
-    textob.setFont("Helvetica",14)
-
-    lines=[]
-
-    hist_data=HistoryData.objects.all()
-    hist_data=hist_data.filter(uname=name)
-
-    print(hist_data)
-
-    for item in hist_data:
-        lines.append(item.infection)
-        lines.append(str(item.start_date))
-        lines.append(str(item.end_date))
-        lines.append(str(item.duration))
-        lines.append(str(item.medicine))
-        lines.append(str(item.outcome))
-        lines.append("  ")
-
-
-    for line in lines:
-        textob.textLine(line)
-    
-    c.drawText(textob)
-    c.showPage()
-    c.save()
-    buf.seek(0)
-
-    return FileResponse(buf,as_attachment=True,filename='healthreport.pdf')
 
 def editView(request,myid):
     if request.method=="POST":
