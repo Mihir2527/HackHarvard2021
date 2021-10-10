@@ -39,6 +39,8 @@ def getHistoryPage(request):
 
         if no_of_weeks==0:
             duration_str=str(days)+" days"
+            if days==1:
+                duration_str=str(days)+" day"
 
         newRecord=HistoryData(uname=name,infection=infection,start_date=start_date,end_date=end_date,duration=duration_str,medicine=medicine,outcome=outcome)
         newRecord.save()
@@ -162,6 +164,8 @@ def editView(request,myid):
 
         if no_of_weeks==0:
             duration_str=str(days)+" days"
+            if days==1:
+                duration_str=str(days)+" day"
         
         HistoryData.objects.filter(entry_id=myid).update(infection=infection,start_date=start_date,end_date=end_date,duration=duration_str,medicine=medicine,outcome=outcome)
         messages.success(request,"Record updated!!")
