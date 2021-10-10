@@ -3,12 +3,17 @@ from History.models import HistoryData
 from django.contrib.auth.models import User
 from django.contrib import messages
 from datetime import date
+from django.http.response import HttpResponse
 
 from django.http import FileResponse
 import io 
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate
+from reportlab.lib.utils import ImageReader
+from reportlab.platypus.tables import Table
+cm = 2.54
 
 # Create your views here.
 def getHomePage(request):
@@ -66,6 +71,7 @@ def getReport(request):
         print("Outcome Filter On")
         currUserHistory=currUserHistory.filter(outcome=outcome_filter)
 
+    currUserHistory=currUserHistory.order_by("-start_date")
     
     buf=io.BytesIO()
     c=canvas.Canvas(buf,pagesize=letter,bottomup=0)
@@ -75,18 +81,22 @@ def getReport(request):
 
     lines=[]
 
-    hist_data=HistoryData.objects.all()
-    hist_data=hist_data.filter(uname=name)
 
-    print(hist_data)
+    info1="Name of person: "+user.first_name+" "+user.last_name
+    info2="Email: "+user.email
+    
+    lines.append(info1)
+    lines.append(info2)
+    lines.append("  ")
+    
 
     for item in currUserHistory:
         lines.append(item.infection)
         lines.append(str(item.start_date))
         lines.append(str(item.end_date))
-        lines.append(str(item.duration))
-        lines.append(str(item.medicine))
-        lines.append(str(item.outcome))
+        lines.append(item.duration)
+        lines.append(item.medicine)
+        lines.append(item.outcome)
         lines.append("  ")
 
 
@@ -99,3 +109,4 @@ def getReport(request):
     buf.seek(0)
 
     return FileResponse(buf,as_attachment=True,filename='healthreport.pdf')
+
