@@ -88,17 +88,23 @@ def getReport(request):
     lines.append(info1)
     lines.append(info2)
     lines.append("  ")
+    lines.append("  ")
+    lines.append("Report Summary")
+    lines.append("  ")
     
 
     for item in currUserHistory:
-        lines.append(item.infection)
-        lines.append(str(item.start_date))
-        lines.append(str(item.end_date))
-        lines.append(item.duration)
-        lines.append(item.medicine)
-        lines.append(item.outcome)
+        temp=item.infection+" -- "+str(item.start_date)+" -- "+item.duration+" -- "+"Medicine: "+item.medicine+" -- "+"Outcome: "+item.outcome
+        # lines.append(item.infection)
+        # lines.append(str(item.start_date))
+        # lines.append(str(item.end_date))
+        # lines.append(item.duration)
+        # lines.append(item.medicine)
+        # lines.append(item.outcome)
+        lines.append(temp)
         lines.append("  ")
 
+    textob.setTextOrigin(3,40)
 
     for line in lines:
         textob.textLine(line)
